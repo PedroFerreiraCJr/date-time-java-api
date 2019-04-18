@@ -33,8 +33,8 @@ import java.time.format.DateTimeFormatterBuilder;
  * Packages: java.time; java.time.chrono; java.time.format; java.time.temporal;
  * java.time.zone;
  * 
- * docs: https://docs.oracle.com/javase/8/docs/api/ tutorial:
- * https://www.baeldung.com/java-8-date-time-intro
+ * docs: https://docs.oracle.com/javase/8/docs/api/
+ * tutorial: https://www.baeldung.com/java-8-date-time-intro
  */
 public class Main {
 
