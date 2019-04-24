@@ -14,11 +14,11 @@ import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
-import java.time.temporal.ChronoField;
 import java.time.temporal.TemporalQueries;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.function.Consumer;
 
 /**
  * Classes:
@@ -49,7 +49,7 @@ import java.util.GregorianCalendar;
  * 
  * 
  * Docs: https://docs.oracle.com/javase/8/docs/api/; https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html
- * Tutorial: https://www.baeldung.com/java-8-date-time-intro; https://www.baeldung.com/java-date-to-localdate-and-localdatetime
+ * Tutorial: https://www.baeldung.com/java-8-date-time-intro; https://www.baeldung.com/java-date-to-localdate-and-localdatetime; https://www.journaldev.com/2800/java-8-date-localdate-localdatetime-instant
  */
 public class Main {
 
@@ -93,6 +93,26 @@ public class Main {
 		System.out.println("DateTimeFormatter[Date]: ".concat(dtf.parse(d, TemporalQueries.localDate()).toString()));
 		System.out.println("DateTimeFormatter[Time]: ".concat(dtf.parse(d, TemporalQueries.localTime()).toString()));
 		System.out.println("DateTimeFormatter[Zone]: ".concat(dtf.parse(d, TemporalQueries.zone()).toString()));
+		
+		localDateTime();
+	}
+	
+	public static void localDateTime() {
+		LocalDateTime today = LocalDateTime.now(ZoneId.systemDefault());
+		System.out.println(today);
+		
+		LocalDateTime now = LocalDateTime.now();
+		System.out.println(now);
+		
+		ZoneId.getAvailableZoneIds().forEach(new Consumer<String>() {
+			@Override
+			public void accept(String t) {
+				if (t.toLowerCase().contains("america")) {
+					System.out.println(t);
+				}
+				
+			}
+		});
 	}
 
 }
